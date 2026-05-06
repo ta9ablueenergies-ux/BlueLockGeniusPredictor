@@ -1,0 +1,88 @@
+{
+  "created_at": "2026-05-02T14:07:35.764824",
+  "coverage": [
+    {
+      "league": "PremierLeague",
+      "rows": 9410,
+      "over15_rate": 0.7529224229543039,
+      "over35_rate": 0.29500531349628056,
+      "yc_coverage": 0.0,
+      "corner_coverage": 0.0
+    },
+    {
+      "league": "LaLiga",
+      "rows": 9008,
+      "over15_rate": 0.7393428063943162,
+      "over35_rate": 0.27642095914742454,
+      "yc_coverage": 0.0,
+      "corner_coverage": 0.0
+    },
+    {
+      "league": "SerieA",
+      "rows": 9012,
+      "over15_rate": 0.750554815801154,
+      "over35_rate": 0.283288948069241,
+      "yc_coverage": 0.0,
+      "corner_coverage": 0.0
+    },
+    {
+      "league": "Bundesliga",
+      "rows": 7725,
+      "over15_rate": 0.801294498381877,
+      "over35_rate": 0.3480906148867314,
+      "yc_coverage": 0.0,
+      "corner_coverage": 0.0
+    },
+    {
+      "league": "Ligue1",
+      "rows": 8756,
+      "over15_rate": 0.7142530835998173,
+      "over35_rate": 0.24600274097761535,
+      "yc_coverage": 0.0,
+      "corner_coverage": 0.0
+    }
+  ],
+  "missing": [
+    [
+      "PremierLeague",
+      "missing HY/AY"
+    ],
+    [
+      "PremierLeague",
+      "missing HC/AC"
+    ],
+    [
+      "LaLiga",
+      "missing HY/AY"
+    ],
+    [
+      "LaLiga",
+      "missing HC/AC"
+    ],
+    [
+      "SerieA",
+      "missing HY/AY"
+    ],
+    [
+      "SerieA",
+      "missing HC/AC"
+    ],
+    [
+      "Bundesliga",
+      "missing HY/AY"
+    ],
+    [
+      "Bundesliga",
+      "missing HC/AC"
+    ],
+    [
+      "Ligue1",
+      "missing HY/AY"
+    ],
+    [
+      "Ligue1",
+      "missing HC/AC"
+    ]
+  ],
+  "feature_rows_updated": 10124
+}

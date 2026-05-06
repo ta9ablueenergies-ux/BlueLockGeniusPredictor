@@ -1,0 +1,336 @@
+[
+    {
+        "timestamp": "2026-05-05 20:12:04",
+        "status": "Success",
+        "message": "V5.9 Global Sharp Sweep Complete. Manifest generated.",
+        "run_id": "20260505200504-7e552303",
+        "stage": "finalize",
+        "meta": {}
+    },
+    {
+        "timestamp": "2026-05-05 19:23:03",
+        "status": "Success",
+        "message": "V5.9 Global Sharp Sweep Complete. Manifest generated.",
+        "run_id": "20260505191551-2e7db4f6",
+        "stage": "finalize",
+        "meta": {}
+    },
+    {
+        "timestamp": "2026-05-05 19:10:48",
+        "status": "Success",
+        "message": "V5.9 Global Sharp Sweep Complete. Manifest generated.",
+        "run_id": "20260505190234-6780b665",
+        "stage": "finalize",
+        "meta": {}
+    },
+    {
+        "timestamp": "2026-05-05 19:02:17",
+        "status": "Success",
+        "message": "V5.9 Global Sharp Sweep Complete. Manifest generated.",
+        "run_id": "20260505185130-b584aeef",
+        "stage": "finalize",
+        "meta": {}
+    },
+    {
+        "timestamp": "2026-05-05 17:40:25",
+        "status": "Success",
+        "message": "V5.9 Global Sharp Sweep Complete. Manifest generated.",
+        "run_id": "20260505171921-2c67a354",
+        "stage": "finalize",
+        "meta": {}
+    },
+    {
+        "timestamp": "2026-05-05 17:26:04",
+        "status": "Success",
+        "message": "Free-source backfill complete.",
+        "run_id": "20260505171921-2c67a354",
+        "stage": "free_source",
+        "meta": {
+            "report": {
+                "created_at": "2026-05-05T15:26:04.286095",
+                "source_registry": {
+                    "openfootball_football_json": {
+                        "url": "https://github.com/openfootball/football.json",
+                        "available": true
+                    },
+                    "openfootball_leagues": {
+                        "url": "https://github.com/openfootball/leagues",
+                        "available": true
+                    },
+                    "football_datasets": {
+                        "url": "https://github.com/datasets/football-datasets",
+                        "available": true
+                    },
+                    "soccerdata": {
+                        "url": "https://github.com/probberechts/soccerdata",
+                        "available": true
+                    },
+                    "fbref_scraper": {
+                        "url": "https://github.com/hale46/fbref-scraper",
+                        "available": true
+                    },
+                    "sofascore_scraper": {
+                        "url": "https://github.com/tunjayoff/sofascore_scraper",
+                        "available": true
+                    },
+                    "odds_harvester": {
+                        "url": "https://github.com/jordantete/OddsHarvester",
+                        "available": true
+                    },
+                    "playwright": {
+                        "url": "https://playwright.dev/python/",
+                        "available": true
+                    },
+                    "seleniumbase": {
+                        "url": "https://seleniumbase.io/",
+                        "available": true
+                    }
+                },
+                "local_repos": {
+                    "football_json_repo": "C:\\Users\\U033IAT\\Documents\\antigravity world\\football_predictions\\external_repos\\football.json",
+                    "football_datasets_repo": "C:\\Users\\U033IAT\\Documents\\antigravity world\\football_predictions\\external_repos\\football-datasets",
+                    "leagues_repo": "C:\\Users\\U033IAT\\Documents\\antigravity world\\football_predictions\\external_repos\\leagues",
+                    "soccerdata_repo": "C:\\Users\\U033IAT\\Documents\\antigravity world\\football_predictions\\external_repos\\soccerdata",
+                    "fbref_scraper_repo": "C:\\Users\\U033IAT\\Documents\\antigravity world\\football_predictions\\external_repos\\fbref-scraper",
+                    "sofascore_scraper_repo": "C:\\Users\\U033IAT\\Documents\\antigravity world\\football_predictions\\external_repos\\sofascore_scraper",
+                    "odds_harvester_repo": "C:\\Users\\U033IAT\\Documents\\antigravity world\\football_predictions\\external_repos\\OddsHarvester"
+                },
+                "results": {
+                    "xgabora": {
+                        "created_at": "2026-05-05T15:25:56.731788",
+                        "source": "https://github.com/xgabora/Club-Football-Match-Data-2000-2025",
+                        "result": {
+                            "matches_path": "C:\\Users\\U033IAT\\Documents\\antigravity world\\football_predictions\\external_data\\xgabora\\Matches.csv",
+                            "rows_seen": 230557,
+                            "rows_considered": 43708,
+                            "rows_written": 43708,
+                            "rows_skipped": 0,
+                            "per_league": {
+                                "Bundesliga": 7522,
+                                "LaLiga": 9008,
+                                "Ligue1": 8756,
+                                "PremierLeague": 9410,
+                                "SerieA": 9012
+                            },
+                            "columns_seen": [
+                                "Division",
+                                "MatchDate",
+                                "MatchTime",
+                                "HomeTeam",
+                                "AwayTeam",
+                                "HomeElo",
+                                "AwayElo",
+                                "Form3Home",
+                                "Form5Home",
+                                "Form3Away",
+                                "Form5Away",
+                                "FTHome",
+                                "FTAway",
+                                "FTResult",
+                                "HTHome",
+                                "HTAway",
+                                "HTResult",
+                                "HomeShots",
+                                "AwayShots",
+                                "HomeTarget",
+                                "AwayTarget",
+                                "HomeFouls",
+                                "AwayFouls",
+                                "HomeCorners",
+                                "AwayCorners",
+                                "HomeYellow",
+                                "AwayYellow",
+                                "HomeRed",
+                                "AwayRed",
+                                "OddHome",
+                                "OddDraw",
+                                "OddAway",
+                                "MaxHome",
+                                "MaxDraw",
+                                "MaxAway",
+                                "Over25",
+                                "Under25",
+                                "MaxOver25",
+                                "MaxUnder25",
+                                "HandiSize",
+                                "HandiHome",
+                                "HandiAway",
+                                "C_LTH",
+                                "C_LTA",
+                                "C_VHD",
+                                "C_VAD",
+                                "C_HTB",
+                                "C_PHB"
+                            ]
+                        },
+                        "training_example_counts": [
+                            {
+                                "league": "2Bundesliga",
+                                "examples": 7281,
+                                "with_market": 0
+                            },
+                            {
+                                "league": "BelgianProLeague",
+                                "examples": 2815,
+                                "with_market": 0
+                            },
+                            {
+                                "league": "Bundesliga",
+                                "examples": 26452,
+                                "with_market": 7650
+                            },
+                            {
+                                "league": "ChampionsLeague",
+                                "examples": 1307,
+                                "with_market": 0
+                            },
+                            {
+                                "league": "Championship",
+                                "examples": 13366,
+                                "with_market": 0
+                            },
+                            {
+                                "league": "Eredivisie",
+                                "examples": 3150,
+                                "with_market": 0
+                            },
+                            {
+                                "league": "LaLiga",
+                                "examples": 31602,
+                                "with_market": 8918
+                            },
+                            {
+                                "league": "LaLiga2",
+                                "examples": 9633,
+                                "with_market": 0
+                            },
+                            {
+                                "league": "LigaNOS",
+                                "examples": 3249,
+                                "with_market": 0
+                            },
+                            {
+                                "league": "Ligue1",
+                                "examples": 29155,
+                                "with_market": 8669
+                            },
+                            {
+                                "league": "Ligue2",
+                                "examples": 6815,
+                                "with_market": 0
+                            },
+                            {
+                                "league": "PremierLeague",
+                                "examples": 32895,
+                                "with_market": 9348
+                            },
+                            {
+                                "league": "ScottishPrem",
+                                "examples": 2323,
+                                "with_market": 0
+                            },
+                            {
+                                "league": "ScottishPremiership",
+                                "examples": 5,
+                                "with_market": 0
+                            },
+                            {
+                                "league": "SerieA",
+                                "examples": 30291,
+                                "with_market": 8893
+                            },
+                            {
+                                "league": "SerieB",
+                                "examples": 8423,
+                                "with_market": 0
+                            },
+                            {
+                                "league": "SuperLig",
+                                "examples": 3544,
+                                "with_market": 0
+                            }
+                        ]
+                    },
+                    "free_datasets": {
+                        "created_at": "2026-05-05T15:25:58.309199",
+                        "source": "local_free_datasets",
+                        "rows_loaded": 10503,
+                        "rows_written": 0
+                    },
+                    "openfootball_repo": {
+                        "loaded": 51526,
+                        "written": 50088
+                    },
+                    "football_datasets_repo": {
+                        "loaded": 58892,
+                        "written": 52085
+                    },
+                    "temp_extract": [
+                        {
+                            "league": "PremierLeague",
+                            "csv_examples": 2274,
+                            "csv_written": 2274,
+                            "csv_skipped": 0
+                        },
+                        {
+                            "league": "LaLiga",
+                            "csv_examples": 1851,
+                            "csv_written": 1851,
+                            "csv_skipped": 0
+                        },
+                        {
+                            "league": "SerieA",
+                            "csv_examples": 2274,
+                            "csv_written": 2274,
+                            "csv_skipped": 0
+                        },
+                        {
+                            "league": "Bundesliga",
+                            "csv_examples": 1830,
+                            "csv_written": 1830,
+                            "csv_skipped": 0
+                        },
+                        {
+                            "league": "Ligue1",
+                            "csv_examples": 2274,
+                            "csv_written": 2274,
+                            "csv_skipped": 0
+                        }
+                    ]
+                }
+            }
+        }
+    },
+    {
+        "timestamp": "2026-05-04 16:43:48",
+        "status": "Success",
+        "message": "V5.9 Global Sharp Sweep Complete. Manifest generated.",
+        "run_id": "20260504163757-0cae2191",
+        "stage": "finalize",
+        "meta": {}
+    },
+    {
+        "timestamp": "2026-05-04 04:18:02",
+        "status": "Success",
+        "message": "V5.9 Global Sharp Sweep Complete. Manifest generated.",
+        "run_id": "20260504040426-b73a1703",
+        "stage": "finalize",
+        "meta": {}
+    },
+    {
+        "timestamp": "2026-05-04 03:46:53",
+        "status": "Success",
+        "message": "V5.9 Global Sharp Sweep Complete. Manifest generated.",
+        "run_id": "20260504033441-c6a5c26e",
+        "stage": "finalize",
+        "meta": {}
+    },
+    {
+        "timestamp": "2026-05-04 03:31:51",
+        "status": "Success",
+        "message": "Internal refresh complete. Public files rebuilt from SQLite.",
+        "run_id": "20260504032958-802521dc",
+        "stage": "internal",
+        "meta": {}
+    }
+]

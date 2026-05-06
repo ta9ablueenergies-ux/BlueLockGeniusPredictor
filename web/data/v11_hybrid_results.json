@@ -1,0 +1,15 @@
+{
+  "timestamp": "2026-05-01T17:17:12.800038",
+  "leagues": [
+    "PremierLeague"
+  ],
+  "results": [
+    {
+      "league": "PremierLeague",
+      "val_accuracy": 0.5286343612334802,
+      "base_accuracy": 0.5092348284960422,
+      "hybrid_accuracy": 0.5197889182058048,
+      "improvement": 2.0725388601036348
+    }
+  ]
+}

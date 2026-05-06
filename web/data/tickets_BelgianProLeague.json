@@ -1,0 +1,137 @@
+{
+    "TYPE_A_ULTRA_SAFE": [
+        {
+            "Home": "Mouscron",
+            "Away": "Anderlecht",
+            "prediction": "Home Win",
+            "best_market": "Home Win",
+            "trust_score": 1.0,
+            "Trust Score": 1.0,
+            "eqi": 1.0,
+            "ticket_score": 31.49,
+            "market_probability": 0.5012,
+            "stake_pct": 0.0,
+            "League": "BelgianProLeague",
+            "Date": "2018-12-22"
+        },
+        {
+            "Home": "St Truiden",
+            "Away": "Kortrijk",
+            "prediction": "Home Win",
+            "best_market": "Home Win",
+            "trust_score": 1.0,
+            "Trust Score": 1.0,
+            "eqi": 1.0,
+            "ticket_score": 31.49,
+            "market_probability": 0.5012,
+            "stake_pct": 0.0,
+            "League": "BelgianProLeague",
+            "Date": "2018-12-22"
+        },
+        {
+            "Home": "Standard",
+            "Away": "Oostende",
+            "prediction": "Home Win",
+            "best_market": "Home Win",
+            "trust_score": 1.0,
+            "Trust Score": 1.0,
+            "eqi": 1.0,
+            "ticket_score": 31.49,
+            "market_probability": 0.5012,
+            "stake_pct": 0.0,
+            "League": "BelgianProLeague",
+            "Date": "2018-12-22"
+        }
+    ],
+    "TYPE_B_BALANCED": [
+        {
+            "Home": "Mouscron",
+            "Away": "Anderlecht",
+            "prediction": "Home Win",
+            "best_market": "Home Win",
+            "trust_score": 1.0,
+            "Trust Score": 1.0,
+            "eqi": 1.0,
+            "ticket_score": 31.49,
+            "market_probability": 0.5012,
+            "stake_pct": 0.0,
+            "League": "BelgianProLeague",
+            "Date": "2018-12-22"
+        },
+        {
+            "Home": "St Truiden",
+            "Away": "Kortrijk",
+            "prediction": "Home Win",
+            "best_market": "Home Win",
+            "trust_score": 1.0,
+            "Trust Score": 1.0,
+            "eqi": 1.0,
+            "ticket_score": 31.49,
+            "market_probability": 0.5012,
+            "stake_pct": 0.0,
+            "League": "BelgianProLeague",
+            "Date": "2018-12-22"
+        },
+        {
+            "Home": "Standard",
+            "Away": "Oostende",
+            "prediction": "Home Win",
+            "best_market": "Home Win",
+            "trust_score": 1.0,
+            "Trust Score": 1.0,
+            "eqi": 1.0,
+            "ticket_score": 31.49,
+            "market_probability": 0.5012,
+            "stake_pct": 0.0,
+            "League": "BelgianProLeague",
+            "Date": "2018-12-22"
+        }
+    ],
+    "TYPE_C_VALUE": [
+        {
+            "Home": "Mouscron",
+            "Away": "Anderlecht",
+            "prediction": "Home Win",
+            "best_market": "Home Win",
+            "trust_score": 1.0,
+            "Trust Score": 1.0,
+            "eqi": 1.0,
+            "ticket_score": 31.49,
+            "market_probability": 0.5012,
+            "stake_pct": 0.0,
+            "League": "BelgianProLeague",
+            "Date": "2018-12-22"
+        },
+        {
+            "Home": "St Truiden",
+            "Away": "Kortrijk",
+            "prediction": "Home Win",
+            "best_market": "Home Win",
+            "trust_score": 1.0,
+            "Trust Score": 1.0,
+            "eqi": 1.0,
+            "ticket_score": 31.49,
+            "market_probability": 0.5012,
+            "stake_pct": 0.0,
+            "League": "BelgianProLeague",
+            "Date": "2018-12-22"
+        },
+        {
+            "Home": "Standard",
+            "Away": "Oostende",
+            "prediction": "Home Win",
+            "best_market": "Home Win",
+            "trust_score": 1.0,
+            "Trust Score": 1.0,
+            "eqi": 1.0,
+            "ticket_score": 31.49,
+            "market_probability": 0.5012,
+            "stake_pct": 0.0,
+            "League": "BelgianProLeague",
+            "Date": "2018-12-22"
+        }
+    ],
+    "scope": "BelgianProLeague",
+    "target_date": null,
+    "last_updated": "2026-05-05 22:38:15"
+}

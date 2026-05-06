@@ -1,0 +1,102 @@
+# ── Credentials & secrets ─────────────────────────────────────────────────────
+.env
+.env.*
+*.secret
+*secret*
+credentials*.json
+*api_key*
+*token*
+
+# ── Database (large binary, contains user data) ───────────────────────────────
+web/data/*.db
+web/data/*.db-shm
+web/data/*.db-wal
+
+# ── Logs & reports ────────────────────────────────────────────────────────────
+web/data/logs/
+web/data/*.log
+web/data/*_report.json
+web/data/*_checkpoint.json
+
+# ── Model weights (large binaries, rebuilt by training) ───────────────────────
+web/data/models/
+web/data/v11_*.pt
+web/data/v9_*.pt
+web/data/*.pt
+web/data/*.pkl
+web/data/*.joblib
+web/data/calibration_*.json
+web/data/xgb_*.json
+web/data/xgb_*.ubj
+model/*.pkl
+model/*.pt
+model/**/*.pkl
+model/**/*.pt
+
+# ── Data downloads & cache ────────────────────────────────────────────────────
+cache/
+data/fdco_csvs/
+data/*.zip
+*.csv
+!data/.gitkeep
+
+# ── Browser driver artifacts ──────────────────────────────────────────────────
+*.crdownload
+chromedriver*
+geckodriver*
+msedgedriver*
+
+# ── Python ────────────────────────────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+.eggs/
+.venv/
+venv/
+venv39/
+env/
+pip-wheel-metadata/
+.mypy_cache/
+.pytest_cache/
+.ruff_cache/
+htmlcov/
+.coverage
+coverage.xml
+
+# ── Node / npm ────────────────────────────────────────────────────────────────
+node_modules/
+npm-debug.log*
+
+# ── OS ────────────────────────────────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ── Editors ──────────────────────────────────────────────────────────────────
+.vscode/settings.json
+.idea/
+*.swp
+*.swo
+*~
+
+# ── Jupyter ───────────────────────────────────────────────────────────────────
+.ipynb_checkpoints/
+
+# ── Archive (local cleanup snapshots, not for repo) ──────────────────────────
+_archive/
+
+# ── Large external datasets (StatsBomb event JSONs, 435 MB) ──────────────────
+external_data/statsbomb-open-data/data/events/
+external_data/statsbomb-open-data/data/three-sixty/
+
+# ── Synthetic / mock data ─────────────────────────────────────────────────────
+*synthetic*
+*mock*
+E0.csv
+E0_*.csv

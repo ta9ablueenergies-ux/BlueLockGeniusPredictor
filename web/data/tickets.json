@@ -1,0 +1,137 @@
+{
+    "TYPE_A_ULTRA_SAFE": [
+        {
+            "Home": "Arsenal",
+            "Away": "Fulham",
+            "prediction": "Home Win",
+            "best_market": "Home Win",
+            "trust_score": 57.1,
+            "Trust Score": 57.1,
+            "eqi": 57.1,
+            "ticket_score": 71.48,
+            "market_probability": 0.6908,
+            "stake_pct": 0.4,
+            "League": "PremierLeague",
+            "Date": "2026-05-02"
+        },
+        {
+            "Home": "Betis",
+            "Away": "SD Eibar",
+            "prediction": "X2 (Double Chance)",
+            "best_market": "X2 (Double Chance)",
+            "trust_score": 29.0,
+            "Trust Score": 29.0,
+            "eqi": 29.0,
+            "ticket_score": 58.43,
+            "market_probability": 0.7807,
+            "stake_pct": 0.0,
+            "League": "LaLiga",
+            "Date": "2018-12-22"
+        },
+        {
+            "Home": "Bayer Leverkusen",
+            "Away": "Hertha BSC",
+            "prediction": "Over 2.5",
+            "best_market": "Over 2.5",
+            "trust_score": 1.0,
+            "Trust Score": 1.0,
+            "eqi": 1.0,
+            "ticket_score": 48.95,
+            "market_probability": 1.0,
+            "stake_pct": 0.0,
+            "League": "Bundesliga",
+            "Date": "2018-12-22"
+        }
+    ],
+    "TYPE_B_BALANCED": [
+        {
+            "Home": "Wolverhampton",
+            "Away": "Sunderland",
+            "prediction": "Over 2.5",
+            "best_market": "Over 2.5",
+            "trust_score": 1.0,
+            "Trust Score": 1.0,
+            "eqi": 1.0,
+            "ticket_score": 49.7,
+            "market_probability": 1.0,
+            "stake_pct": 0.0,
+            "League": "PremierLeague",
+            "Date": "2026-05-02"
+        },
+        {
+            "Home": "Bayer Leverkusen",
+            "Away": "Hertha BSC",
+            "prediction": "Over 2.5",
+            "best_market": "Over 2.5",
+            "trust_score": 1.0,
+            "Trust Score": 1.0,
+            "eqi": 1.0,
+            "ticket_score": 48.95,
+            "market_probability": 1.0,
+            "stake_pct": 0.0,
+            "League": "Bundesliga",
+            "Date": "2018-12-22"
+        },
+        {
+            "Home": "Getafe",
+            "Away": "Rayo Vallecano",
+            "prediction": "BTTS",
+            "best_market": "BTTS",
+            "trust_score": 1.0,
+            "Trust Score": 1.0,
+            "eqi": 1.0,
+            "ticket_score": 47.9,
+            "market_probability": 1.0,
+            "stake_pct": 0.0,
+            "League": "LaLiga",
+            "Date": "2026-05-03"
+        }
+    ],
+    "TYPE_C_VALUE": [
+        {
+            "Home": "Arsenal",
+            "Away": "Fulham",
+            "prediction": "Home Win",
+            "best_market": "Home Win",
+            "trust_score": 57.1,
+            "Trust Score": 57.1,
+            "eqi": 57.1,
+            "ticket_score": 71.48,
+            "market_probability": 0.6908,
+            "stake_pct": 0.4,
+            "League": "PremierLeague",
+            "Date": "2026-05-02"
+        },
+        {
+            "Home": "Betis",
+            "Away": "SD Eibar",
+            "prediction": "X2 (Double Chance)",
+            "best_market": "X2 (Double Chance)",
+            "trust_score": 29.0,
+            "Trust Score": 29.0,
+            "eqi": 29.0,
+            "ticket_score": 58.43,
+            "market_probability": 0.7807,
+            "stake_pct": 0.0,
+            "League": "LaLiga",
+            "Date": "2018-12-22"
+        },
+        {
+            "Home": "Genoa",
+            "Away": "Atalanta",
+            "prediction": "Home Win",
+            "best_market": "Home Win",
+            "trust_score": 26.9,
+            "Trust Score": 26.9,
+            "eqi": 26.9,
+            "ticket_score": 48.48,
+            "market_probability": 0.5328,
+            "stake_pct": 0.0,
+            "League": "SerieA",
+            "Date": "2018-12-22"
+        }
+    ],
+    "scope": "GLOBAL",
+    "target_date": null,
+    "last_updated": "2026-05-05 22:38:15"
+}

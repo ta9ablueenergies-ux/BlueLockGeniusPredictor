@@ -1,0 +1,137 @@
+{
+    "TYPE_A_ULTRA_SAFE": [
+        {
+            "Home": "Hibernian",
+            "Away": "Celtic",
+            "prediction": "Home Win",
+            "best_market": "Home Win",
+            "trust_score": 1.0,
+            "Trust Score": 1.0,
+            "eqi": 1.0,
+            "ticket_score": 30.44,
+            "market_probability": 0.5012,
+            "stake_pct": 0.0,
+            "League": "ScottishPremiership",
+            "Date": "2026-05-03"
+        },
+        {
+            "Home": "Dundee FC",
+            "Away": "St. Mirren",
+            "prediction": "Home Win",
+            "best_market": "Home Win",
+            "trust_score": 1.0,
+            "Trust Score": 1.0,
+            "eqi": 1.0,
+            "ticket_score": 30.44,
+            "market_probability": 0.5012,
+            "stake_pct": 0.0,
+            "League": "ScottishPremiership",
+            "Date": "2026-05-02"
+        },
+        {
+            "Home": "Falkirk",
+            "Away": "Motherwell",
+            "prediction": "Home Win",
+            "best_market": "Home Win",
+            "trust_score": 1.0,
+            "Trust Score": 1.0,
+            "eqi": 1.0,
+            "ticket_score": 30.44,
+            "market_probability": 0.5012,
+            "stake_pct": 0.0,
+            "League": "ScottishPremiership",
+            "Date": "2026-05-02"
+        }
+    ],
+    "TYPE_B_BALANCED": [
+        {
+            "Home": "Hibernian",
+            "Away": "Celtic",
+            "prediction": "Home Win",
+            "best_market": "Home Win",
+            "trust_score": 1.0,
+            "Trust Score": 1.0,
+            "eqi": 1.0,
+            "ticket_score": 30.44,
+            "market_probability": 0.5012,
+            "stake_pct": 0.0,
+            "League": "ScottishPremiership",
+            "Date": "2026-05-03"
+        },
+        {
+            "Home": "Dundee FC",
+            "Away": "St. Mirren",
+            "prediction": "Home Win",
+            "best_market": "Home Win",
+            "trust_score": 1.0,
+            "Trust Score": 1.0,
+            "eqi": 1.0,
+            "ticket_score": 30.44,
+            "market_probability": 0.5012,
+            "stake_pct": 0.0,
+            "League": "ScottishPremiership",
+            "Date": "2026-05-02"
+        },
+        {
+            "Home": "Falkirk",
+            "Away": "Motherwell",
+            "prediction": "Home Win",
+            "best_market": "Home Win",
+            "trust_score": 1.0,
+            "Trust Score": 1.0,
+            "eqi": 1.0,
+            "ticket_score": 30.44,
+            "market_probability": 0.5012,
+            "stake_pct": 0.0,
+            "League": "ScottishPremiership",
+            "Date": "2026-05-02"
+        }
+    ],
+    "TYPE_C_VALUE": [
+        {
+            "Home": "Hearts",
+            "Away": "Rangers",
+            "prediction": "Home Win",
+            "best_market": "Home Win",
+            "trust_score": 1.0,
+            "Trust Score": 1.0,
+            "eqi": 1.0,
+            "ticket_score": 30.35,
+            "market_probability": 0.4986,
+            "stake_pct": 0.0,
+            "League": "ScottishPremiership",
+            "Date": "2026-05-04"
+        },
+        {
+            "Home": "Hibernian",
+            "Away": "Celtic",
+            "prediction": "Home Win",
+            "best_market": "Home Win",
+            "trust_score": 1.0,
+            "Trust Score": 1.0,
+            "eqi": 1.0,
+            "ticket_score": 30.44,
+            "market_probability": 0.5012,
+            "stake_pct": 0.0,
+            "League": "ScottishPremiership",
+            "Date": "2026-05-03"
+        },
+        {
+            "Home": "Dundee FC",
+            "Away": "St. Mirren",
+            "prediction": "Home Win",
+            "best_market": "Home Win",
+            "trust_score": 1.0,
+            "Trust Score": 1.0,
+            "eqi": 1.0,
+            "ticket_score": 30.44,
+            "market_probability": 0.5012,
+            "stake_pct": 0.0,
+            "League": "ScottishPremiership",
+            "Date": "2026-05-02"
+        }
+    ],
+    "scope": "ScottishPremiership",
+    "target_date": null,
+    "last_updated": "2026-05-05 22:38:15"
+}

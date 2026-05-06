@@ -1,0 +1,137 @@
+{
+    "TYPE_A_ULTRA_SAFE": [
+        {
+            "Home": "NEC",
+            "Away": "Telstar",
+            "prediction": "Home Win",
+            "best_market": "Home Win",
+            "trust_score": 1.0,
+            "Trust Score": 1.0,
+            "eqi": 1.0,
+            "ticket_score": 32.24,
+            "market_probability": 0.5012,
+            "stake_pct": 0.0,
+            "League": "Eredivisie",
+            "Date": "2026-05-02"
+        },
+        {
+            "Home": "Utrecht",
+            "Away": "NAC",
+            "prediction": "Home Win",
+            "best_market": "Home Win",
+            "trust_score": 1.0,
+            "Trust Score": 1.0,
+            "eqi": 1.0,
+            "ticket_score": 32.24,
+            "market_probability": 0.5012,
+            "stake_pct": 0.0,
+            "League": "Eredivisie",
+            "Date": "2026-05-02"
+        },
+        {
+            "Home": "Excelsior",
+            "Away": "Heracles",
+            "prediction": "Home Win",
+            "best_market": "Home Win",
+            "trust_score": 1.0,
+            "Trust Score": 1.0,
+            "eqi": 1.0,
+            "ticket_score": 31.49,
+            "market_probability": 0.5012,
+            "stake_pct": 0.0,
+            "League": "Eredivisie",
+            "Date": "2018-12-22"
+        }
+    ],
+    "TYPE_B_BALANCED": [
+        {
+            "Home": "NEC",
+            "Away": "Telstar",
+            "prediction": "Home Win",
+            "best_market": "Home Win",
+            "trust_score": 1.0,
+            "Trust Score": 1.0,
+            "eqi": 1.0,
+            "ticket_score": 32.24,
+            "market_probability": 0.5012,
+            "stake_pct": 0.0,
+            "League": "Eredivisie",
+            "Date": "2026-05-02"
+        },
+        {
+            "Home": "Utrecht",
+            "Away": "NAC",
+            "prediction": "Home Win",
+            "best_market": "Home Win",
+            "trust_score": 1.0,
+            "Trust Score": 1.0,
+            "eqi": 1.0,
+            "ticket_score": 32.24,
+            "market_probability": 0.5012,
+            "stake_pct": 0.0,
+            "League": "Eredivisie",
+            "Date": "2026-05-02"
+        },
+        {
+            "Home": "Excelsior",
+            "Away": "Heracles",
+            "prediction": "Home Win",
+            "best_market": "Home Win",
+            "trust_score": 1.0,
+            "Trust Score": 1.0,
+            "eqi": 1.0,
+            "ticket_score": 31.49,
+            "market_probability": 0.5012,
+            "stake_pct": 0.0,
+            "League": "Eredivisie",
+            "Date": "2018-12-22"
+        }
+    ],
+    "TYPE_C_VALUE": [
+        {
+            "Home": "NEC",
+            "Away": "Telstar",
+            "prediction": "Home Win",
+            "best_market": "Home Win",
+            "trust_score": 1.0,
+            "Trust Score": 1.0,
+            "eqi": 1.0,
+            "ticket_score": 32.24,
+            "market_probability": 0.5012,
+            "stake_pct": 0.0,
+            "League": "Eredivisie",
+            "Date": "2026-05-02"
+        },
+        {
+            "Home": "Utrecht",
+            "Away": "NAC",
+            "prediction": "Home Win",
+            "best_market": "Home Win",
+            "trust_score": 1.0,
+            "Trust Score": 1.0,
+            "eqi": 1.0,
+            "ticket_score": 32.24,
+            "market_probability": 0.5012,
+            "stake_pct": 0.0,
+            "League": "Eredivisie",
+            "Date": "2026-05-02"
+        },
+        {
+            "Home": "Excelsior",
+            "Away": "Heracles",
+            "prediction": "Home Win",
+            "best_market": "Home Win",
+            "trust_score": 1.0,
+            "Trust Score": 1.0,
+            "eqi": 1.0,
+            "ticket_score": 31.49,
+            "market_probability": 0.5012,
+            "stake_pct": 0.0,
+            "League": "Eredivisie",
+            "Date": "2018-12-22"
+        }
+    ],
+    "scope": "Eredivisie",
+    "target_date": null,
+    "last_updated": "2026-05-05 22:38:15"
+}

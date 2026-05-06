@@ -1,0 +1,5 @@
+{
+  "base_url": "https://v3.football.api-sports.io",
+  "api_key": "b3c6c2f13d8e0736acf52fdb2fa3bb24",
+  "requests_per_day": 100
+}

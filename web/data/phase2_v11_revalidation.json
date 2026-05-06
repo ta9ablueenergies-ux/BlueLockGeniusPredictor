@@ -1,0 +1,132 @@
+{
+  "created_at": "2026-05-02T15:14:57.111351",
+  "python": "C:\\Users\\U033IAT\\python-portable\\python.exe",
+  "results": [
+    {
+      "league": "PremierLeague",
+      "hold_out_size": 242,
+      "v9_v2": {
+        "accuracy": 0.3760330578512397,
+        "log_loss": 1.1857696771621704,
+        "draw_recall": 0.05454545454545454
+      },
+      "v11_v2": {
+        "accuracy": 0.3760330578512397,
+        "log_loss": 1.5567187070846558,
+        "draw_recall": 0.43636363636363634,
+        "btts_accuracy": 0.5619834710743802,
+        "over25_accuracy": 0.5950413223140496,
+        "over15_accuracy": 0.756198347107438,
+        "over35_accuracy": 0.5619834710743802
+      },
+      "delta_acc": 0.0,
+      "ll_delta": -0.37094902992248535,
+      "unlocked": false,
+      "gap_to_acc_threshold": 0.02,
+      "gap_to_ll_threshold": 0.37294902992248535,
+      "training_approach": "finetune",
+      "checkpoint": "model\\v11\\PremierLeague_hybrid_v11_draww_v2.pt"
+    },
+    {
+      "league": "LaLiga",
+      "hold_out_size": 156,
+      "v9_v2": {
+        "accuracy": 0.3974358974358974,
+        "log_loss": 1.1390228271484375,
+        "draw_recall": 0.17391304347826086
+      },
+      "v11_v2": {
+        "accuracy": 0.25,
+        "log_loss": 1.3267781734466553,
+        "draw_recall": 0.6521739130434783,
+        "btts_accuracy": 0.5576923076923077,
+        "over25_accuracy": 0.5833333333333334,
+        "over15_accuracy": 0.4935897435897436,
+        "over35_accuracy": 0.5128205128205128
+      },
+      "delta_acc": -0.1474358974358974,
+      "ll_delta": -0.18775534629821777,
+      "unlocked": false,
+      "gap_to_acc_threshold": 0.1674358974358974,
+      "gap_to_ll_threshold": 0.18975534629821778,
+      "training_approach": "finetune",
+      "checkpoint": "model\\v11\\LaLiga_hybrid_v11_draww_v2.pt"
+    },
+    {
+      "league": "SerieA",
+      "hold_out_size": 243,
+      "v9_v2": {
+        "accuracy": 0.40329218106995884,
+        "log_loss": 1.1816232204437256,
+        "draw_recall": 0.12244897959183673
+      },
+      "v11_v2": {
+        "accuracy": 0.2674897119341564,
+        "log_loss": 1.266859769821167,
+        "draw_recall": 0.32653061224489793,
+        "btts_accuracy": 0.7366255144032922,
+        "over25_accuracy": 0.7407407407407407,
+        "over15_accuracy": 0.4444444444444444,
+        "over35_accuracy": 0.5637860082304527
+      },
+      "delta_acc": -0.13580246913580246,
+      "ll_delta": -0.0852365493774414,
+      "unlocked": false,
+      "gap_to_acc_threshold": 0.15580246913580245,
+      "gap_to_ll_threshold": 0.08723654937744141,
+      "training_approach": "finetune",
+      "checkpoint": "model\\v11\\SerieA_hybrid_v11_draww_v2.pt"
+    },
+    {
+      "league": "Bundesliga",
+      "hold_out_size": 119,
+      "v9_v2": {
+        "accuracy": 0.40336134453781514,
+        "log_loss": 1.1968960762023926,
+        "draw_recall": 0.2
+      },
+      "v11_v2": {
+        "accuracy": 0.25210084033613445,
+        "log_loss": 1.2529211044311523,
+        "draw_recall": 0.6,
+        "btts_accuracy": 0.6890756302521008,
+        "over25_accuracy": 0.7310924369747899,
+        "over15_accuracy": 0.8823529411764706,
+        "over35_accuracy": 0.5210084033613446
+      },
+      "delta_acc": -0.1512605042016807,
+      "ll_delta": -0.056025028228759766,
+      "unlocked": false,
+      "gap_to_acc_threshold": 0.17126050420168068,
+      "gap_to_ll_threshold": 0.05802502822875977,
+      "training_approach": "finetune",
+      "checkpoint": "model\\v11\\Bundesliga_hybrid_v11_draww_v2.pt"
+    },
+    {
+      "league": "Ligue1",
+      "hold_out_size": 182,
+      "v9_v2": {
+        "accuracy": 0.4175824175824176,
+        "log_loss": 1.1154452562332153,
+        "draw_recall": 0.36666666666666664
+      },
+      "v11_v2": {
+        "accuracy": 0.2802197802197802,
+        "log_loss": 1.4298115968704224,
+        "draw_recall": 0.5333333333333333,
+        "btts_accuracy": 0.44505494505494503,
+        "over25_accuracy": 0.47802197802197804,
+        "over15_accuracy": 0.4945054945054945,
+        "over35_accuracy": 0.45604395604395603
+      },
+      "delta_acc": -0.13736263736263737,
+      "ll_delta": -0.31436634063720703,
+      "unlocked": false,
+      "gap_to_acc_threshold": 0.15736263736263736,
+      "gap_to_ll_threshold": 0.31636634063720703,
+      "training_approach": "scratch",
+      "checkpoint": "model\\v11\\Ligue1_hybrid_v11_draww_v2.pt"
+    }
+  ],
+  "unlocked": []
+}

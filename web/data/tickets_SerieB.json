@@ -1,0 +1,137 @@
+{
+    "TYPE_A_ULTRA_SAFE": [
+        {
+            "Home": "Cremonese",
+            "Away": "Carpi",
+            "prediction": "Home Win",
+            "best_market": "Home Win",
+            "trust_score": 1.0,
+            "Trust Score": 1.0,
+            "eqi": 1.0,
+            "ticket_score": 31.49,
+            "market_probability": 0.5012,
+            "stake_pct": 0.0,
+            "League": "SerieB",
+            "Date": "2018-12-22"
+        },
+        {
+            "Home": "Livorno",
+            "Away": "Verona",
+            "prediction": "Home Win",
+            "best_market": "Home Win",
+            "trust_score": 1.0,
+            "Trust Score": 1.0,
+            "eqi": 1.0,
+            "ticket_score": 31.49,
+            "market_probability": 0.5012,
+            "stake_pct": 0.0,
+            "League": "SerieB",
+            "Date": "2018-12-22"
+        },
+        {
+            "Home": "AS Livorno",
+            "Away": "Hellas Verona",
+            "prediction": "Home Win",
+            "best_market": "Home Win",
+            "trust_score": 1.0,
+            "Trust Score": 1.0,
+            "eqi": 1.0,
+            "ticket_score": 31.49,
+            "market_probability": 0.5012,
+            "stake_pct": 0.0,
+            "League": "SerieB",
+            "Date": "2018-12-22"
+        }
+    ],
+    "TYPE_B_BALANCED": [
+        {
+            "Home": "Cremonese",
+            "Away": "Carpi",
+            "prediction": "Home Win",
+            "best_market": "Home Win",
+            "trust_score": 1.0,
+            "Trust Score": 1.0,
+            "eqi": 1.0,
+            "ticket_score": 31.49,
+            "market_probability": 0.5012,
+            "stake_pct": 0.0,
+            "League": "SerieB",
+            "Date": "2018-12-22"
+        },
+        {
+            "Home": "Livorno",
+            "Away": "Verona",
+            "prediction": "Home Win",
+            "best_market": "Home Win",
+            "trust_score": 1.0,
+            "Trust Score": 1.0,
+            "eqi": 1.0,
+            "ticket_score": 31.49,
+            "market_probability": 0.5012,
+            "stake_pct": 0.0,
+            "League": "SerieB",
+            "Date": "2018-12-22"
+        },
+        {
+            "Home": "AS Livorno",
+            "Away": "Hellas Verona",
+            "prediction": "Home Win",
+            "best_market": "Home Win",
+            "trust_score": 1.0,
+            "Trust Score": 1.0,
+            "eqi": 1.0,
+            "ticket_score": 31.49,
+            "market_probability": 0.5012,
+            "stake_pct": 0.0,
+            "League": "SerieB",
+            "Date": "2018-12-22"
+        }
+    ],
+    "TYPE_C_VALUE": [
+        {
+            "Home": "Cremonese",
+            "Away": "Carpi",
+            "prediction": "Home Win",
+            "best_market": "Home Win",
+            "trust_score": 1.0,
+            "Trust Score": 1.0,
+            "eqi": 1.0,
+            "ticket_score": 31.49,
+            "market_probability": 0.5012,
+            "stake_pct": 0.0,
+            "League": "SerieB",
+            "Date": "2018-12-22"
+        },
+        {
+            "Home": "Livorno",
+            "Away": "Verona",
+            "prediction": "Home Win",
+            "best_market": "Home Win",
+            "trust_score": 1.0,
+            "Trust Score": 1.0,
+            "eqi": 1.0,
+            "ticket_score": 31.49,
+            "market_probability": 0.5012,
+            "stake_pct": 0.0,
+            "League": "SerieB",
+            "Date": "2018-12-22"
+        },
+        {
+            "Home": "AS Livorno",
+            "Away": "Hellas Verona",
+            "prediction": "Home Win",
+            "best_market": "Home Win",
+            "trust_score": 1.0,
+            "Trust Score": 1.0,
+            "eqi": 1.0,
+            "ticket_score": 31.49,
+            "market_probability": 0.5012,
+            "stake_pct": 0.0,
+            "League": "SerieB",
+            "Date": "2018-12-22"
+        }
+    ],
+    "scope": "SerieB",
+    "target_date": null,
+    "last_updated": "2026-05-05 22:38:15"
+}

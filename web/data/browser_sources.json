@@ -1,0 +1,196 @@
+{
+  "sources": [
+    {
+      "name": "Flashscore Premier League",
+      "league": "PremierLeague",
+      "kind": "fixtures",
+      "enabled": true,
+      "url_templates": [
+        "https://www.flashscore.com/football/england/premier-league/?fs_date={date_ddmmyyyy}"
+      ],
+      "extra": {
+        "text_mode": "flashscore"
+      }
+    },
+    {
+      "name": "Flashscore Championship",
+      "league": "Championship",
+      "kind": "fixtures",
+      "enabled": true,
+      "url_templates": [
+        "https://www.flashscore.com/football/england/championship/?fs_date={date_ddmmyyyy}"
+      ],
+      "extra": {
+        "text_mode": "flashscore"
+      }
+    },
+    {
+      "name": "Flashscore LaLiga",
+      "league": "LaLiga",
+      "kind": "fixtures",
+      "enabled": true,
+      "url_templates": [
+        "https://www.flashscore.com/football/spain/laliga/?fs_date={date_ddmmyyyy}"
+      ],
+      "extra": {
+        "text_mode": "flashscore"
+      }
+    },
+    {
+      "name": "Flashscore LaLiga2",
+      "league": "LaLiga2",
+      "kind": "fixtures",
+      "enabled": true,
+      "url_templates": [
+        "https://www.flashscore.com/football/spain/laliga2/?fs_date={date_ddmmyyyy}"
+      ],
+      "extra": {
+        "text_mode": "flashscore"
+      }
+    },
+    {
+      "name": "Flashscore Bundesliga",
+      "league": "Bundesliga",
+      "kind": "fixtures",
+      "enabled": true,
+      "url_templates": [
+        "https://www.flashscore.com/football/germany/bundesliga/?fs_date={date_ddmmyyyy}"
+      ],
+      "extra": {
+        "text_mode": "flashscore"
+      }
+    },
+    {
+      "name": "Flashscore 2. Bundesliga",
+      "league": "2Bundesliga",
+      "kind": "fixtures",
+      "enabled": true,
+      "url_templates": [
+        "https://www.flashscore.com/football/germany/2-bundesliga/?fs_date={date_ddmmyyyy}"
+      ],
+      "extra": {
+        "text_mode": "flashscore"
+      }
+    },
+    {
+      "name": "Flashscore Serie A",
+      "league": "SerieA",
+      "kind": "fixtures",
+      "enabled": true,
+      "url_templates": [
+        "https://www.flashscore.com/football/italy/serie-a/?fs_date={date_ddmmyyyy}"
+      ],
+      "extra": {
+        "text_mode": "flashscore"
+      }
+    },
+    {
+      "name": "Flashscore Serie B",
+      "league": "SerieB",
+      "kind": "fixtures",
+      "enabled": true,
+      "url_templates": [
+        "https://www.flashscore.com/football/italy/serie-b/?fs_date={date_ddmmyyyy}"
+      ],
+      "extra": {
+        "text_mode": "flashscore"
+      }
+    },
+    {
+      "name": "Flashscore Ligue 1",
+      "league": "Ligue1",
+      "kind": "fixtures",
+      "enabled": true,
+      "url_templates": [
+        "https://www.flashscore.com/football/france/ligue-1/?fs_date={date_ddmmyyyy}"
+      ],
+      "extra": {
+        "text_mode": "flashscore"
+      }
+    },
+    {
+      "name": "Flashscore Ligue 2",
+      "league": "Ligue2",
+      "kind": "fixtures",
+      "enabled": true,
+      "url_templates": [
+        "https://www.flashscore.com/football/france/ligue-2/?fs_date={date_ddmmyyyy}"
+      ],
+      "extra": {
+        "text_mode": "flashscore"
+      }
+    },
+    {
+      "name": "Flashscore Champions League",
+      "league": "ChampionsLeague",
+      "kind": "fixtures",
+      "enabled": true,
+      "url_templates": [
+        "https://www.flashscore.com/football/europe/champions-league/?fs_date={date_ddmmyyyy}"
+      ],
+      "extra": {
+        "text_mode": "flashscore"
+      }
+    },
+    {
+      "name": "Flashscore Scottish Premiership",
+      "league": "ScottishPremiership",
+      "kind": "fixtures",
+      "enabled": true,
+      "url_templates": [
+        "https://www.flashscore.com/football/scotland/premiership/?fs_date={date_ddmmyyyy}"
+      ],
+      "extra": {
+        "text_mode": "flashscore"
+      }
+    },
+    {
+      "name": "Flashscore Eredivisie",
+      "league": "Eredivisie",
+      "kind": "fixtures",
+      "enabled": true,
+      "url_templates": [
+        "https://www.flashscore.com/football/netherlands/eredivisie/?fs_date={date_ddmmyyyy}"
+      ],
+      "extra": {
+        "text_mode": "flashscore"
+      }
+    },
+    {
+      "name": "Flashscore Liga Portugal",
+      "league": "LigaNOS",
+      "kind": "fixtures",
+      "enabled": true,
+      "url_templates": [
+        "https://www.flashscore.com/football/portugal/liga-portugal/?fs_date={date_ddmmyyyy}"
+      ],
+      "extra": {
+        "text_mode": "flashscore"
+      }
+    },
+    {
+      "name": "Flashscore Belgian Pro League",
+      "league": "BelgianProLeague",
+      "kind": "fixtures",
+      "enabled": true,
+      "url_templates": [
+        "https://www.flashscore.com/football/belgium/jupiler-pro-league/?fs_date={date_ddmmyyyy}"
+      ],
+      "extra": {
+        "text_mode": "flashscore"
+      }
+    },
+    {
+      "name": "Flashscore Super Lig",
+      "league": "SuperLig",
+      "kind": "fixtures",
+      "enabled": true,
+      "url_templates": [
+        "https://www.flashscore.com/football/turkey/super-lig/?fs_date={date_ddmmyyyy}"
+      ],
+      "extra": {
+        "text_mode": "flashscore"
+      }
+    }
+  ]
+}

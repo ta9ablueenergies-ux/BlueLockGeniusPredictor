@@ -1,0 +1,6 @@
+optuna
+scikit-learn
+scikit-optimize
+matplotlib
+seaborn
+jupyter

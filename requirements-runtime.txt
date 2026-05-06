@@ -1,0 +1,14 @@
+flask
+flask-cors
+requests
+pydantic
+pyyaml
+pandas
+numpy
+scipy
+xgboost
+torch
+networkx
+beautifulsoup4
+lxml
+html5lib
