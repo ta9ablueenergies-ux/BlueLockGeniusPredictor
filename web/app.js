@@ -785,6 +785,34 @@ function trustScore(match) {
     return Math.max(1, Math.min(100, Math.round(numeric)));
 }
 
+function selectedProb(match) {
+    const market = (match.primary_market || match.prediction || '').toLowerCase();
+    if (market.includes('home win') || market === 'home')       return parseFloat(match['P(H)']) || 0;
+    if (market.includes('away win') || market === 'away')       return parseFloat(match['P(A)']) || 0;
+    if (market.includes('draw') && !market.includes('no bet'))  return parseFloat(match['P(D)']) || 0;
+    if (market.includes('draw no bet') || market.includes('dnb')) return parseFloat(match['DNB']) || 0;
+    if (market.includes('over 2.5') || market.includes('o2.5')) return parseFloat(match['P(O2.5)']) || parseFloat(match.p_o25) || 0;
+    if (market.includes('over 1.5') || market.includes('o1.5')) return parseFloat(match.over15_prob) || 0;
+    if (market.includes('over 3.5') || market.includes('o3.5')) return parseFloat(match.over35_prob) || 0;
+    if (market.includes('btts'))                                return parseFloat(match['P(BTTS)']) || parseFloat(match.p_btts) || 0;
+    if (market.includes('1x') || market.includes('home or draw')) return parseFloat(match['P(1X)']) || 0;
+    if (market.includes('x2') || market.includes('draw or away')) return parseFloat(match['P(X2)']) || 0;
+    if (market.includes('corners over 9')) return parseFloat((match.market_model?.corners?.over_9_5)) || 0;
+    return parseFloat(match.selected_market_probability) || parseFloat(match['P(H)']) || 0;
+}
+
+function isSingularityMatch(match) {
+    const prob  = selectedProb(match);
+    const clv   = parseFloat(match.CLD) || 0;
+    const edge  = parseFloat(match['Value Edge']) || 0;
+    const trust = trustScore(match);
+    // Classic: model is highly confident AND closing line confirms the edge
+    const classic   = prob >= 0.82 && clv > 0.03;
+    // Composite: all four signals align simultaneously
+    const composite = trust >= 78 && prob >= 0.68 && clv > 0.02 && edge > 0.04;
+    return classic || composite;
+}
+
 function trustTier(score) {
     if (score >= 70) return 'HIGH TRUST';
     if (score >= 45) return 'PLAYABLE TRUST';
@@ -864,7 +892,7 @@ function renderMatches(matches) {
 
         // Render Matches for this league
         groups[leagueName].sort((a,b) => (a.Time || '').localeCompare(b.Time || '')).forEach(match => {
-            const isSingularity = (match.prob >= 0.85 && match.CLD > 0.05);
+            const isSingularity = isSingularityMatch(match);
             const card = document.createElement('div');
             card.className = `match-card ${match.Anchor === 'YES' ? 'anchor' : ''} ${isSingularity ? 'singularity' : ''}`;
             
@@ -930,7 +958,17 @@ function renderMatches(matches) {
                         </div>
                     </div>
                     <div class="badges">
-                        ${isSingularity ? '<span class="singularity-badge">🌌 Singularity Level</span>' : ''}
+                        ${isSingularity ? (() => {
+                            const prob = selectedProb(match);
+                            const clv  = parseFloat(match.CLD) || 0;
+                            const edge = parseFloat(match['Value Edge']) || 0;
+                            const trust = trustScore(match);
+                            const classic = prob >= 0.82 && clv > 0.03;
+                            const label   = classic
+                                ? `🌌 SINGULARITY — ${(prob*100).toFixed(0)}% | CLD +${(clv*100).toFixed(1)}%`
+                                : `🌌 SINGULARITY — COMPOSITE LOCK | T${trust} E${(edge*100).toFixed(0)}% CLD+`;
+                            return `<span class="singularity-badge" title="${label}">${label}</span>`;
+                        })() : ''}
                         <span class="badge ${badgeClass}">${scoreTier}</span>
                         ${motivationBadge}
                         ${routerBadge}
@@ -1014,12 +1052,18 @@ function renderMatches(matches) {
 }
 function updateHeaderStats(matches) {
     const total = matches ? matches.length : 0;
+    const singularities = matches ? matches.filter(m => isSingularityMatch(m)).length : 0;
     const sharps = matches ? matches.filter(m => trustScore(m) >= 70).length : 0;
-    
+
     document.getElementById('total-games').innerText = total;
-    document.getElementById('best-edge').innerText = sharps;
     const bestEdgeLabel = document.getElementById('best-edge-label');
-    if (bestEdgeLabel) bestEdgeLabel.innerText = 'High Trust';
+    if (singularities > 0) {
+        document.getElementById('best-edge').innerText = singularities;
+        if (bestEdgeLabel) bestEdgeLabel.innerText = '🌌 Singularities';
+    } else {
+        document.getElementById('best-edge').innerText = sharps;
+        if (bestEdgeLabel) bestEdgeLabel.innerText = 'High Trust';
+    }
 }
 
 async function updateLastSyncTime() {
