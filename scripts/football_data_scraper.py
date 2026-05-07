@@ -19,7 +19,7 @@ urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 logger = logging.getLogger(__name__)
 
 # football-data.org API token
-FDO_TOKEN = 'f074627fce94426599ed5d2b5d2b5a88'
+FDO_TOKEN = os.environ.get('FDO_TOKEN', '')
 
 # football-data.org v4 competition codes and IDs
 FDO_COMPETITIONS = {

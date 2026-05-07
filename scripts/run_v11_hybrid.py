@@ -482,13 +482,13 @@ def train_hybrid(model, train_loader, val_loader, epochs=80, lr=3e-4, wd=1e-2, l
     history = []
     aborted = False
     for epoch in range(epochs):
-        # Phase 5: Compressed warmup — full draw weight by E15 so early stop can't starve it
+        # Gradual draw weight ramp — capped at 1.8 to prevent draw-collapse
         if epoch < 5:
             draw_weight = torch.tensor([1.0, 1.0, 1.0], device=device)
         elif epoch < 15:
-            draw_weight = torch.tensor([1.0, 1.5, 1.0], device=device)
+            draw_weight = torch.tensor([1.0, 1.3, 1.0], device=device)
         else:
-            draw_weight = torch.tensor([1.0, 2.5, 1.0], device=device)
+            draw_weight = torch.tensor([1.0, 1.8, 1.0], device=device)
         criterion_1x2 = FocalLoss(alpha=draw_weight, gamma=2.0)
         if warmup_epochs and epoch < warmup_epochs:
             warmup_lr = lr * float(epoch + 1) / float(warmup_epochs)
@@ -617,7 +617,9 @@ def train_hybrid(model, train_loader, val_loader, epochs=80, lr=3e-4, wd=1e-2, l
             print(f"{league} V11 diverged -- skipping")
             aborted = True
             break
-        quality = val_log_loss + (0.35 * val_brier_1x2) + (0.15 * max(0.0, 0.10 - draw_recall))
+        # Penalise draw_recall that strays too far from 0.28 (typical draw rate)
+        draw_penalty = 0.20 * abs(draw_recall - 0.28)
+        quality = val_log_loss + (0.35 * val_brier_1x2) + draw_penalty
         if quality < (best_quality - 1e-4) or (abs(quality - best_quality) <= 1e-4 and val_acc > best_val_acc):
             best_quality = quality
             best_val_acc = val_acc

@@ -8,9 +8,9 @@ credentials*.json
 *token*
 
 # ── Database (large binary, contains user data) ───────────────────────────────
-web/data/*.db
-web/data/*.db-shm
-web/data/*.db-wal
+*.db
+*.db-shm
+*.db-wal
 
 # ── Logs & reports ────────────────────────────────────────────────────────────
 web/data/logs/

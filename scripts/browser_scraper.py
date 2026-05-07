@@ -786,9 +786,11 @@ def _extract_flashscore_matches_from_dom(renderer: BrowserRenderer, target_date:
             except Exception:
                 match_date = target_date
             kickoff = date_match.group("time")
-        elif target_date == today_key:
+        elif time_match:
+            # No explicit date in row — assume target_date (the URL-requested date)
+            # This handles future fixture pages where Flashscore shows only times
             match_date = target_date
-            kickoff = time_match.group("time") if time_match else None
+            kickoff = time_match.group("time")
         else:
             continue
 

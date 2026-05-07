@@ -349,7 +349,7 @@ def _phase2_discover(
             continue
 
         page_url = _build_url(template, match_date)
-        print(f"  [{league} {match_date}] {len(te_rows)} rows → {page_url[:70]}")
+        print(f"  [{league} {match_date}] {len(te_rows)} rows -> {page_url[:70]}")
 
         try:
             renderer.fetch(page_url, wait_selector=None, use_cache=False)
