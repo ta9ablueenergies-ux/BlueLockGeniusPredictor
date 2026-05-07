@@ -395,8 +395,19 @@ class HybridMatchDataset(Dataset):
             self.situation_builder.update_from_result(row)
 
     def _pad_and_encode(self, seq):
-        padding = [{'gf':0, 'ga':0, 'pts':1}] * (self.seq_len - len(seq))
-        full = (padding + seq)[-self.seq_len:]
+        n_pad = self.seq_len - len(seq)
+        padding = [{'gf':0, 'ga':0, '_is_pad':True}] * n_pad
+        full = (padding + list(seq))[-self.seq_len:]
+
+        # Pre-compute pts for each real entry so we can roll over them
+        def entry_pts(m):
+            if m.get('_is_pad'):
+                return None  # exclude padding from form rolling
+            ftr, side = m.get('ftr', 'D'), m.get('side', 'H')
+            return 3 if ftr == ('H' if side == 'H' else 'A') else (1 if ftr == 'D' else 0)
+
+        pts_full = [entry_pts(m) for m in full]  # None for pad entries
+
         feats = []
         def norm(value, scale, default=0.0):
             try:
@@ -406,7 +417,27 @@ class HybridMatchDataset(Dataset):
                 return max(0.0, min(1.0, value / scale))
             except Exception:
                 return default
-        for m in full:
+
+        for j, m in enumerate(full):
+            # Rolling form over real matches only (exclude None/pad)
+            past_real = [p for p in pts_full[:j] if p is not None]
+
+            # form_last5: points from last 5 real matches, normalised to [0,1]
+            form_last5 = sum(past_real[-5:]) / 15.0 if past_real else 0.5
+
+            # streak_norm: consecutive win(+) or loss(-) run, capped at ±5 → [-1,1]
+            streak = 0
+            direction = None
+            for p in reversed(past_real):
+                d = 1 if p == 3 else (-1 if p == 0 else 0)
+                if direction is None and d != 0:
+                    direction = d
+                if direction is not None and d == direction:
+                    streak += direction
+                else:
+                    break
+            streak_norm = max(-1.0, min(1.0, streak / 5.0))
+
             pts = 3 if (m.get('ftr') == ('H' if m.get('side')=='H' else 'A')) else (1 if m.get('ftr')=='D' else 0) if 'side' in m else 1
             xg_for = m.get('xg_for')
             xg_against = m.get('xg_against')
@@ -416,10 +447,9 @@ class HybridMatchDataset(Dataset):
                     xg_diff = 0.0
             except Exception:
                 xg_diff = 0.0
-            # Extended sequence features (20+ features)
-            possession = m.get('possession', 50.0)  # default to 50% possession
-            opponent_strength = m.get('opponent_strength', 0.5)  # default to neutral strength
-            rest_days = m.get('rest_days', 3.0)  # default to 3 days rest
+            possession = m.get('possession', 50.0)
+            opponent_strength = m.get('opponent_strength', 0.5)
+            rest_days = m.get('rest_days', 3.0)
             was_home = m.get('was_home', 1.0 if m.get('side') == 'H' else 0.0)
 
             feats.append([
@@ -433,16 +463,18 @@ class HybridMatchDataset(Dataset):
                 norm(m.get('corners_for'), 15, default=0.35),
                 norm(m.get('cards_for'), 8, default=0.25),
                 max(0.0, min(1.0, (xg_diff + 3.0) / 6.0)),
-                norm(xg_for, 2.0, default=0.5),  # xg_for
-                norm(xg_against, 2.0, default=0.5),  # xg_against
-                norm(possession, 100.0, default=0.5),  # possession %
-                norm(opponent_strength, 1.0, default=0.5),  # opponent strength
-                norm(rest_days, 7.0, default=0.43),  # rest days (3 days default)
-                was_home,  # was home
-                norm(m.get('season_week', 20.0), 52.0, default=0.38),  # season week
-                norm(m.get('travel_distance', 0.0), 1000.0, default=0.0),  # travel distance
-                norm(m.get('referee_id', 0.0), 10.0, default=0.0),  # referee id
-                norm(m.get('crowd_size', 25000.0), 100000.0, default=0.25),  # crowd size
+                norm(xg_for, 2.0, default=0.5),
+                norm(xg_against, 2.0, default=0.5),
+                norm(possession, 100.0, default=0.5),
+                norm(opponent_strength, 1.0, default=0.5),
+                norm(rest_days, 7.0, default=0.43),
+                was_home,
+                norm(m.get('season_week', 20.0), 52.0, default=0.38),
+                norm(m.get('travel_distance', 0.0), 1000.0, default=0.0),
+                norm(m.get('referee_id', 0.0), 10.0, default=0.0),
+                norm(m.get('crowd_size', 25000.0), 100000.0, default=0.25),
+                streak_norm,   # [20] win/loss run momentum (-1 deep slump → +1 high steam)
+                form_last5,    # [21] points density last 5 real matches (0=all losses, 1=all wins)
             ])
         return torch.tensor(feats, dtype=torch.float32)
 

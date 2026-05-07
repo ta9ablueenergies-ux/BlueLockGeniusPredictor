@@ -47,7 +47,7 @@ class V11Hybrid(nn.Module):
     """
     Hybrid model: V8.1 features + Neural temporal sequences
     """
-    def __init__(self, num_teams, num_leagues=5, seq_len=15, hidden_dim=128, num_v8_features=20, dropout=0.3):
+    def __init__(self, num_teams, num_leagues=5, seq_len=15, hidden_dim=128, num_v8_features=20, dropout=0.3, seq_input_dim=22):
         super().__init__()
         self.num_v8_features = num_v8_features
 
@@ -63,9 +63,9 @@ class V11Hybrid(nn.Module):
         emb_dim = 64
         self.team_emb = nn.Embedding(num_teams, emb_dim)
 
-        # Temporal encoders — 20-dim per timestep matches _pad_and_encode() output
-        self.h_encoder = TemporalSequenceTransformer(input_dim=20, hidden_dim=hidden_dim, nhead=8, num_layers=2, dropout=dropout, max_len=seq_len)
-        self.a_encoder = TemporalSequenceTransformer(input_dim=20, hidden_dim=hidden_dim, nhead=8, num_layers=2, dropout=dropout, max_len=seq_len)
+        # Temporal encoders — seq_input_dim per timestep (22 with form-streak features)
+        self.h_encoder = TemporalSequenceTransformer(input_dim=seq_input_dim, hidden_dim=hidden_dim, nhead=8, num_layers=2, dropout=dropout, max_len=seq_len)
+        self.a_encoder = TemporalSequenceTransformer(input_dim=seq_input_dim, hidden_dim=hidden_dim, nhead=8, num_layers=2, dropout=dropout, max_len=seq_len)
 
         # Cross-match attention — lets each team's encoding attend to the opponent's
         # encoding, producing opponent-aware form representations before fusion.

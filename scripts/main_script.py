@@ -14,6 +14,17 @@ import json
 import pickle
 from datetime import datetime, timedelta
 from momentum_analyzer import calculate_momentum_score, get_trend_sparkline
+
+def _momentum_emoji(val):
+    """Map momentum score (0.8–1.2) to display emoji."""
+    try:
+        v = float(val)
+        if v >= 1.10: return '🔥'  # High Steam
+        if v >= 1.00: return '📈'  # Good form
+        if v >= 0.90: return '➖'  # Neutral
+        return '📉'               # Slump
+    except Exception:
+        return '➖'
 from scipy.stats import poisson, linregress
 import torch
 import torch.nn.functional as F
@@ -328,29 +339,49 @@ def get_v11_hybrid_signals(league_name, h_team, a_team, v8_features, h_cent, a_c
         h_hist = get_team_match_history(h_team, limit=20)
         a_hist = get_team_match_history(a_team, limit=20)
         
-        def encode_seq(hist, team, seq_len=20):
-            # Pad defaults match _pad_and_encode() training defaults exactly
-            PAD = [0.0, 0.0, 0.33, 0.45, 0.45, 0.40, 0.40, 0.35, 0.25,
-                   0.50, 0.50, 0.50, 0.50, 0.50, 0.43, 0.50, 0.38, 0.00, 0.00, 0.25]
+        def encode_seq(hist, team, seq_len=20, seq_input_dim=22):
+            # PAD matches _pad_and_encode() defaults: 20 base + streak_norm=0.0, form_last5=0.5
+            PAD_BASE = [0.0, 0.0, 0.33, 0.45, 0.45, 0.40, 0.40, 0.35, 0.25,
+                        0.50, 0.50, 0.50, 0.50, 0.50, 0.43, 0.50, 0.38, 0.00, 0.00, 0.25]
+            PAD = PAD_BASE + ([0.0, 0.5] if seq_input_dim == 22 else [])
             chron = list(reversed(hist))  # oldest → newest
             window = chron[-seq_len:]
-            encoded = [PAD[:] for _ in range(seq_len - len(window))]
+            n_pad = seq_len - len(window)
+            encoded = [PAD[:] for _ in range(n_pad)]
+            # Collect pts for rolling form (real entries only)
+            real_pts = []
             for i, m in enumerate(window):
                 is_h = m.get('home_team') == team
                 gf = float(m.get('actual_fthg') or 0)
                 ga = float(m.get('actual_ftag') or 0)
                 ftr = m.get('actual_ftr')
                 pts = 3 if ftr == ('H' if is_h else 'A') else (1 if ftr == 'D' else 0)
+
+                # Rolling form features based on real matches before this one
+                form_last5 = sum(real_pts[-5:]) / 15.0 if real_pts else 0.5
+                streak = 0
+                direction = None
+                for p in reversed(real_pts):
+                    d = 1 if p == 3 else (-1 if p == 0 else 0)
+                    if direction is None and d != 0:
+                        direction = d
+                    if direction is not None and d == direction:
+                        streak += direction
+                    else:
+                        break
+                streak_norm = max(-1.0, min(1.0, streak / 5.0))
+                real_pts.append(pts)
+
                 # xG from intel_raw or sequence_history xg/xga fields
                 xg_for = m.get('xg')
                 xg_against = m.get('xga')
                 travel = 0.0
                 opp_strength = 0.5
                 try:
-                    intel = json.loads(m.get('intel_raw') or '{}')
+                    _intel = json.loads(m.get('intel_raw') or '{}')
                     if xg_for is None:
-                        xg_for = intel.get('xg')
-                    travel = float(intel.get('travel_km_a' if not is_h else 'travel_km_h') or 0) / 1000.0
+                        xg_for = _intel.get('xg')
+                    travel = float(_intel.get('travel_km_a' if not is_h else 'travel_km_h') or 0) / 1000.0
                     p_opp = m.get('p_x2' if is_h else 'p_1x')
                     if p_opp is not None:
                         opp_strength = float(p_opp)
@@ -389,30 +420,36 @@ def get_v11_hybrid_signals(league_name, h_team, a_team, v8_features, h_cent, a_c
                     season_week = yday / 365.0
                 except Exception:
                     season_week = 0.38
-                encoded.append([
+                row = [
                     min(1.0, gf / 5), min(1.0, ga / 5), pts / 3,
                     0.45, 0.45, 0.40, 0.40, 0.35, 0.25,
                     xg_diff, xg_for_n, xg_agn_n,
                     0.50, opp_strength, rest_days, was_home,
                     season_week, min(1.0, travel), 0.00, 0.25,
-                ])
+                ]
+                if seq_input_dim == 22:
+                    row += [streak_norm, form_last5]
+                encoded.append(row)
             return torch.tensor([encoded], dtype=torch.float32)
 
-        h_seq = encode_seq(h_hist, h_team)
-        a_seq = encode_seq(a_hist, a_team)
-        
-        # 3. Model Loading
+        # 3. Model Loading (auto-detect seq_input_dim from checkpoint)
         cache_key = f"v11_{league_name}"
         if cache_key not in _NEURAL_CACHE:
             w_path = get_active_model_path(league_name, "v11_hybrid", os.path.join(model_dir, f'{league_name}_hybrid_v11_draww_v2.pt'))
             print(f"V11: {w_path}")
-            model = V11Hybrid(num_teams=len(team_map), num_v8_features=28, seq_len=20)
-            model.load_state_dict(torch.load(w_path, map_location='cpu'), strict=False)
+            state = torch.load(w_path, map_location='cpu')
+            proj_key = 'h_encoder.input_proj.weight'
+            seq_input_dim = int(state[proj_key].shape[1]) if proj_key in state else 20
+            model = V11Hybrid(num_teams=len(team_map), num_v8_features=28, seq_len=20, seq_input_dim=seq_input_dim)
+            model.load_state_dict(state, strict=False)
             model.eval()
-            _NEURAL_CACHE[cache_key] = model
-            
-        model = _NEURAL_CACHE[cache_key]
-        
+            _NEURAL_CACHE[cache_key] = (model, seq_input_dim)
+
+        model, seq_input_dim = _NEURAL_CACHE[cache_key]
+
+        h_seq = encode_seq(h_hist, h_team, seq_input_dim=seq_input_dim)
+        a_seq = encode_seq(a_hist, a_team, seq_input_dim=seq_input_dim)
+
         # 4. Inference
         v8_t = torch.tensor([v8_features], dtype=torch.float32)
         h_id_t = torch.tensor([h_id_raw], dtype=torch.long)
@@ -604,6 +641,24 @@ def predict_results(df_matches, league, ratings, intel_dicts):
         intel['sentiment_a'] = float(np.mean(a_news)) if a_news else float(intel.get('sentiment_a', 0.0) or 0.0)
         if intel:
             print(f"    [Oracle] Sentiment: {h} ({intel['sentiment_h']:+.2f}), {a} ({intel['sentiment_a']:+.2f})")
+
+        # Compute real momentum from DB match history (fixes inference default of 0.5)
+        try:
+            _h_hist_raw = get_team_match_history(h, limit=5)
+            _a_hist_raw = get_team_match_history(a, limit=5)
+            def _build_form_seq(hist, team):
+                seq = []
+                for m in list(reversed(hist)):
+                    is_h = m.get('home_team') == team
+                    ftr = m.get('actual_ftr')
+                    pts = 3 if ftr == ('H' if is_h else 'A') else (1 if ftr == 'D' else 0)
+                    seq.append({'result': 'W' if pts == 3 else ('D' if pts == 1 else 'L'),
+                                'xg': float(m.get('xg') or 0.0), 'xga': float(m.get('xga') or 0.0)})
+                return seq
+            intel['momentum_h'] = calculate_momentum_score(_build_form_seq(_h_hist_raw, h))
+            intel['momentum_a'] = calculate_momentum_score(_build_form_seq(_a_hist_raw, a))
+        except Exception:
+            pass
 
         situation = get_match_situation_from_db(league, h, a, match['Date'])
         intel['league_situation'] = situation
@@ -827,7 +882,7 @@ def predict_results(df_matches, league, ratings, intel_dicts):
             'motivation_score': situation.get('match_pressure_score', 0),
             'motivation_label': situation.get('label', 'Normal table context'),
             'league_situation': situation,
-            'Momentum H': str(intel.get('momentum_h', 0.5)), 'Momentum A': str(intel.get('momentum_a', 0.5)),
+            'Momentum H': _momentum_emoji(intel.get('momentum_h', 1.0)), 'Momentum A': _momentum_emoji(intel.get('momentum_a', 1.0)),
             'gnn_active': bool(gnn and gnn_weight > 0), 'gnn_weight': gnn_weight,
             'intel_feats': intel, 'graph_snapshot_id': snap_id
         }
@@ -866,11 +921,11 @@ def generate_v11_rationale(p_h, p_d, p_a, p_o25, p_btts, situation, intel):
         drivers.append("Standard Match Profile")
     
     # Momentum Drivers
-    mom_h = float(intel.get('momentum_h', 0.5))
-    mom_a = float(intel.get('momentum_a', 0.5))
-    if mom_h > 0.75: drivers.append("Home Momentum Spike")
-    if mom_a > 0.75: drivers.append("Away Momentum Spike")
-    if abs(mom_h - mom_a) > 0.4: drivers.append("Significant Momentum Imbalance")
+    mom_h = float(intel.get('momentum_h', 1.0))
+    mom_a = float(intel.get('momentum_a', 1.0))
+    if mom_h >= 1.10: drivers.append("Home_Momentum_Spike")
+    if mom_a >= 1.10: drivers.append("Away_Momentum_Spike")
+    if abs(mom_h - mom_a) >= 0.15: drivers.append("Significant Momentum Imbalance")
     
     # Market Drivers
     if "Corners" in str(intel.get('market_router', {}).get('selected_market', '')):
