@@ -2,8 +2,8 @@ const config = {
     // TOP 5 ELITE LEAGUES
     leagues: [
         'PremierLeague', 'LaLiga', 'SerieA', 'Bundesliga', 'Ligue1',
-        // EUROPEAN CUPS
-        'ChampionsLeague',
+        // INTERNATIONAL
+        'ChampionsLeague', 'WorldCup',
         // SECOND TIER
         'Championship', 'ScottishPremiership', 'Eredivisie', 'LigaNOS', 'BelgianProLeague', 'SuperLig',
         // 2ND DIVISIONS
