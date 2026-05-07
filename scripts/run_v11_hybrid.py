@@ -24,6 +24,8 @@ project_root = os.path.dirname(script_dir)
 sys.path.insert(0, script_dir)
 sys.path.insert(0, project_root)
 
+from model_registry import set_champion_candidate
+
 from scipy.stats import poisson
 from v11_hybrid_model import V11Hybrid
 from training_data_guard import CANONICAL_VIEW_NAME, ensure_training_data_guard
@@ -734,6 +736,7 @@ def run_hybrid_pipeline(league, train_seasons=4, epochs=80, dropout=0.2, lr=3e-4
     model_path = os.path.join(V11_MODEL_DIR, f"{league}_hybrid_v11_draww_v5.pt")
     torch.save(trained.state_dict(), model_path)
     with open(os.path.join(V11_MODEL_DIR, f"{league}_team_map.json"), 'w') as f: json.dump(team_map, f)
+    set_champion_candidate(league, "v11_hybrid", champion_path=model_path, active_path=model_path)
     final_metrics = history[-1] if history else {}
     artifact = {
         "model_path": model_path,
