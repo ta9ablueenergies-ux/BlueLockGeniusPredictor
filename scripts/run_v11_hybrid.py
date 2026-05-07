@@ -482,13 +482,14 @@ def train_hybrid(model, train_loader, val_loader, epochs=80, lr=3e-4, wd=1e-2, l
     history = []
     aborted = False
     for epoch in range(epochs):
-        # Gradual draw weight ramp — capped at 1.8 to prevent draw-collapse
-        if epoch < 5:
+        # Conservative draw weight ramp. FocalLoss gamma=2.0 is non-linear:
+        # 1.3x jumps recall 0%→44%, 1.8x collapses it to 82%. Keep very gentle.
+        if epoch < 15:
             draw_weight = torch.tensor([1.0, 1.0, 1.0], device=device)
-        elif epoch < 15:
-            draw_weight = torch.tensor([1.0, 1.3, 1.0], device=device)
+        elif epoch < 30:
+            draw_weight = torch.tensor([1.0, 1.05, 1.0], device=device)
         else:
-            draw_weight = torch.tensor([1.0, 1.8, 1.0], device=device)
+            draw_weight = torch.tensor([1.0, 1.1, 1.0], device=device)
         criterion_1x2 = FocalLoss(alpha=draw_weight, gamma=2.0)
         if warmup_epochs and epoch < warmup_epochs:
             warmup_lr = lr * float(epoch + 1) / float(warmup_epochs)
