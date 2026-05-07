@@ -17,6 +17,8 @@ web/data/logs/
 web/data/*.log
 web/data/*_report.json
 web/data/*_checkpoint.json
+retrain_*.log
+retrain_*.log.err
 
 # ── Model weights (large binaries, rebuilt by training) ───────────────────────
 web/data/models/
