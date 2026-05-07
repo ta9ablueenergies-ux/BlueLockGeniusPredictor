@@ -1,137 +1,53 @@
 {
     "TYPE_A_ULTRA_SAFE": [
         {
-            "Home": "Blackburn",
-            "Away": "Norwich",
+            "Home": "Millwall",
+            "Away": "Hull",
             "prediction": "Home Win",
             "best_market": "Home Win",
             "trust_score": 1.0,
             "Trust Score": 1.0,
             "eqi": 1.0,
-            "ticket_score": 31.49,
-            "market_probability": 0.5012,
+            "ticket_score": 30.39,
+            "market_probability": 0.4997,
             "stake_pct": 0.0,
             "League": "Championship",
-            "Date": "2018-12-22"
-        },
-        {
-            "Home": "Brentford",
-            "Away": "Bolton",
-            "prediction": "Home Win",
-            "best_market": "Home Win",
-            "trust_score": 1.0,
-            "Trust Score": 1.0,
-            "eqi": 1.0,
-            "ticket_score": 31.49,
-            "market_probability": 0.5012,
-            "stake_pct": 0.0,
-            "League": "Championship",
-            "Date": "2018-12-22"
-        },
-        {
-            "Home": "Derby",
-            "Away": "Bristol City",
-            "prediction": "Home Win",
-            "best_market": "Home Win",
-            "trust_score": 1.0,
-            "Trust Score": 1.0,
-            "eqi": 1.0,
-            "ticket_score": 31.49,
-            "market_probability": 0.5012,
-            "stake_pct": 0.0,
-            "League": "Championship",
-            "Date": "2018-12-22"
+            "Date": "2026-05-11"
         }
     ],
     "TYPE_B_BALANCED": [
         {
-            "Home": "Blackburn",
-            "Away": "Norwich",
+            "Home": "Millwall",
+            "Away": "Hull",
             "prediction": "Home Win",
             "best_market": "Home Win",
             "trust_score": 1.0,
             "Trust Score": 1.0,
             "eqi": 1.0,
-            "ticket_score": 31.49,
-            "market_probability": 0.5012,
+            "ticket_score": 30.39,
+            "market_probability": 0.4997,
             "stake_pct": 0.0,
             "League": "Championship",
-            "Date": "2018-12-22"
-        },
-        {
-            "Home": "Brentford",
-            "Away": "Bolton",
-            "prediction": "Home Win",
-            "best_market": "Home Win",
-            "trust_score": 1.0,
-            "Trust Score": 1.0,
-            "eqi": 1.0,
-            "ticket_score": 31.49,
-            "market_probability": 0.5012,
-            "stake_pct": 0.0,
-            "League": "Championship",
-            "Date": "2018-12-22"
-        },
-        {
-            "Home": "Derby",
-            "Away": "Bristol City",
-            "prediction": "Home Win",
-            "best_market": "Home Win",
-            "trust_score": 1.0,
-            "Trust Score": 1.0,
-            "eqi": 1.0,
-            "ticket_score": 31.49,
-            "market_probability": 0.5012,
-            "stake_pct": 0.0,
-            "League": "Championship",
-            "Date": "2018-12-22"
+            "Date": "2026-05-11"
         }
     ],
     "TYPE_C_VALUE": [
         {
-            "Home": "Blackburn",
-            "Away": "Norwich",
+            "Home": "Millwall",
+            "Away": "Hull",
             "prediction": "Home Win",
             "best_market": "Home Win",
             "trust_score": 1.0,
             "Trust Score": 1.0,
             "eqi": 1.0,
-            "ticket_score": 31.49,
-            "market_probability": 0.5012,
+            "ticket_score": 30.39,
+            "market_probability": 0.4997,
             "stake_pct": 0.0,
             "League": "Championship",
-            "Date": "2018-12-22"
-        },
-        {
-            "Home": "Brentford",
-            "Away": "Bolton",
-            "prediction": "Home Win",
-            "best_market": "Home Win",
-            "trust_score": 1.0,
-            "Trust Score": 1.0,
-            "eqi": 1.0,
-            "ticket_score": 31.49,
-            "market_probability": 0.5012,
-            "stake_pct": 0.0,
-            "League": "Championship",
-            "Date": "2018-12-22"
-        },
-        {
-            "Home": "Derby",
-            "Away": "Bristol City",
-            "prediction": "Home Win",
-            "best_market": "Home Win",
-            "trust_score": 1.0,
-            "Trust Score": 1.0,
-            "eqi": 1.0,
-            "ticket_score": 31.49,
-            "market_probability": 0.5012,
-            "stake_pct": 0.0,
-            "League": "Championship",
-            "Date": "2018-12-22"
+            "Date": "2026-05-11"
         }
     ],
     "scope": "Championship",
-    "target_date": null,
-    "last_updated": "2026-05-05 22:38:15"
+    "target_date": "2026-05-11",
+    "last_updated": "2026-05-07 05:15:34"
 }
