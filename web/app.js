@@ -80,6 +80,8 @@ function setupPipelineControls() {
         displayFilterInput.addEventListener('change', () => { window.filterMode = 'exact'; triggerFilter(); });
         if (applyBtn) applyBtn.addEventListener('click', () => { window.filterMode = 'exact'; triggerFilter(); });
         if (applyWeekBtn) applyWeekBtn.addEventListener('click', () => { window.filterMode = 'week'; triggerFilter(); });
+        const leagueFilterEl = document.getElementById('global-league-filter');
+        if (leagueFilterEl) leagueFilterEl.addEventListener('change', () => { window.filterMode = window.filterMode || 'exact'; triggerFilter(); });
     }
 
     function stopPolling() {
@@ -368,26 +370,32 @@ async function loadGlobalIntelligence() {
             matches = manifest.matches;
         }
 
-        // Filter by current target date
+        // Filter by current target date and optional league
+        const leagueFilterEl = document.getElementById('global-league-filter');
+        const leagueFilter = leagueFilterEl ? leagueFilterEl.value : '';
         const filtered = matches.filter(m => {
             let mDate = m.Date || m.date || m.match_date || '';
             if (!mDate) return false;
-            
+
             if (mDate.includes('/')) {
                 const parts = mDate.split('/');
                 if (parts.length === 3) mDate = `${parts[2]}-${parts[1].padStart(2, '0')}-${parts[0].padStart(2, '0')}`;
             }
             if (mDate.includes('T')) mDate = mDate.split('T')[0];
-            
+
             const tDate = targetDate.split('T')[0];
+            let passDate;
             if (window.filterMode === 'week') {
                 const d1 = new Date(tDate + 'T00:00:00');
                 const d2 = new Date(mDate + 'T00:00:00');
-                const diffTime = d2 - d1;
-                const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
-                return diffDays >= 0 && diffDays <= 7;
+                const diffDays = Math.floor((d2 - d1) / (1000 * 60 * 60 * 24));
+                passDate = diffDays >= 0 && diffDays <= 7;
+            } else {
+                passDate = mDate === tDate;
             }
-            return mDate === tDate;
+            if (!passDate) return false;
+            if (leagueFilter && (m.league || m.League || '') !== leagueFilter) return false;
+            return true;
         });
 
         renderMatches(filtered);

@@ -38,9 +38,10 @@
             </div>
 
             <div class="sidebar-section" style="margin-top: 1rem;">
-                <h3>European Cups</h3>
+                <h3>International</h3>
                 <nav class="league-nav">
                     <button class="nav-item" data-league="ChampionsLeague">🇪🇺 Champions League</button>
+                    <button class="nav-item" data-league="WorldCup">🏆 World Cup</button>
                 </nav>
             </div>
 
@@ -156,9 +157,37 @@
                 </div>
 
                 <!-- Display Date Filter: Real-time UI filter -->
-                <div style="margin-top: 1rem; padding-top: 1rem; border-top: 1px solid rgba(255,255,255,0.05); display: flex; align-items: center; gap: 1rem;">
+                <div style="margin-top: 1rem; padding-top: 1rem; border-top: 1px solid rgba(255,255,255,0.05); display: flex; flex-wrap: wrap; align-items: center; gap: 1rem;">
                     <span style="font-size: 0.7rem; font-weight: 700; color: var(--neon-gold); text-transform: uppercase; letter-spacing: 1px;">📅 View Date Filter:</span>
                     <input type="date" id="display-date-filter" style="padding: 0.4rem; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 4px; color: white; font-family: 'Roboto Mono'; font-size: 0.8rem;">
+                    <select id="global-league-filter" style="padding: 0.4rem 0.6rem; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 4px; color: white; font-family: 'Roboto Mono'; font-size: 0.8rem; cursor: pointer;">
+                        <option value="">🌍 All Competitions</option>
+                        <optgroup label="Elite Leagues">
+                            <option value="PremierLeague">🏴󠁧󠁢󠁥󠁮󠁧󠁿 Premier League</option>
+                            <option value="LaLiga">🇪🇸 La Liga</option>
+                            <option value="SerieA">🇮🇹 Serie A</option>
+                            <option value="Bundesliga">🇩🇪 Bundesliga</option>
+                            <option value="Ligue1">🇫🇷 Ligue 1</option>
+                        </optgroup>
+                        <optgroup label="International">
+                            <option value="ChampionsLeague">🇪🇺 Champions League</option>
+                            <option value="WorldCup">🏆 World Cup</option>
+                        </optgroup>
+                        <optgroup label="Second Tier">
+                            <option value="Championship">🏴󠁧󠁢󠁥󠁮󠁧󠁿 Championship</option>
+                            <option value="ScottishPremiership">🏴󠁧󠁢󠁳󠁣󠁴󠁿 Scottish Premiership</option>
+                            <option value="Eredivisie">🇳🇱 Eredivisie</option>
+                            <option value="LigaNOS">🇵🇹 Liga NOS</option>
+                            <option value="BelgianProLeague">🇧🇪 Belgian Pro League</option>
+                            <option value="SuperLig">🇹🇷 Super Lig</option>
+                        </optgroup>
+                        <optgroup label="Second Divisions">
+                            <option value="2Bundesliga">🇩🇪 2. Bundesliga</option>
+                            <option value="Ligue2">🇫🇷 Ligue 2</option>
+                            <option value="LaLiga2">🇪🇸 La Liga 2</option>
+                            <option value="SerieB">🇮🇹 Serie B</option>
+                        </optgroup>
+                    </select>
                     <button id="apply-display-filter" style="padding: 0.4rem 0.8rem; background: var(--neon-gold); color: black; border: none; border-radius: 4px; font-weight: 700; font-size: 0.7rem; cursor: pointer; text-transform: uppercase; margin-left: 0.5rem; transition: opacity 0.2s;">Apply</button>
                     <button id="apply-this-week-filter" style="padding: 0.4rem 0.8rem; background: rgba(0,243,255,0.15); color: var(--neon-blue); border: 1px solid rgba(0,243,255,0.3); border-radius: 4px; font-weight: 700; font-size: 0.7rem; cursor: pointer; text-transform: uppercase; margin-left: 0.5rem; transition: all 0.2s;">This Week</button>
                     <span style="font-size: 0.6rem; color: var(--text-dim); margin-left: 0.5rem;">(Filters display without re-running sweep)</span>
