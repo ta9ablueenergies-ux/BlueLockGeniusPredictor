@@ -133,6 +133,18 @@
       }
     },
     {
+      "name": "Flashscore World Cup",
+      "league": "WorldCup",
+      "kind": "fixtures",
+      "enabled": true,
+      "url_templates": [
+        "https://www.flashscore.com/football/world/world-cup/?fs_date={date_ddmmyyyy}"
+      ],
+      "extra": {
+        "text_mode": "flashscore"
+      }
+    },
+    {
       "name": "Flashscore Scottish Premiership",
       "league": "ScottishPremiership",
       "kind": "fixtures",

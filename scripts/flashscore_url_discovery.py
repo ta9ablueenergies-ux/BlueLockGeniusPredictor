@@ -41,7 +41,7 @@ LEAGUE_PRIORITY = [
     "PremierLeague", "LaLiga", "SerieA", "Bundesliga", "Ligue1",
     "Championship", "LaLiga2", "SerieB", "Ligue2", "2Bundesliga",
     "Eredivisie", "LigaNOS", "BelgianProLeague", "ScottishPremiership",
-    "ScottishPrem", "SuperLig", "ChampionsLeague",
+    "ScottishPrem", "SuperLig", "ChampionsLeague", "WorldCup",
 ]
 
 STAT_COLUMNS = [

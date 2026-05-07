@@ -216,6 +216,8 @@ def load_openfootball_repo(
         "fr.1.json": "Ligue1",
         "fr.2.json": "Ligue2",
         "uefa.cl.json": "ChampionsLeague",
+        "world.2026.json": "WorldCup",
+        "int/world.json": "WorldCup",
     }
     for root, _, files in os.walk(repo_root):
         for name in files:

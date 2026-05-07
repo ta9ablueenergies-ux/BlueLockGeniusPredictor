@@ -19,14 +19,14 @@ from graph_registry import get_active_graph_snapshot_id
 
 LEAGUES = [
     'PremierLeague', 'LaLiga', 'SerieA', 'Bundesliga', 'Ligue1',
-    'ChampionsLeague', 'Championship', 'ScottishPremiership',
+    'ChampionsLeague', 'WorldCup', 'Championship', 'ScottishPremiership',
     'Eredivisie', 'LigaNOS', 'BelgianProLeague', 'SuperLig',
     '2Bundesliga', 'Ligue2', 'LaLiga2', 'SerieB'
 ]
 
 CLUSTERS = [
     ['PremierLeague', 'LaLiga', 'SerieA', 'Bundesliga'], # Elite Core
-    ['ChampionsLeague'], # Mid-Week Europe
+    ['ChampionsLeague', 'WorldCup'], # Mid-Week / International
     ['Championship', 'ScottishPremiership'], # British Tier 2
     ['Eredivisie', 'LigaNOS', 'BelgianProLeague', 'SuperLig'], # European T2
     ['Ligue1', '2Bundesliga', 'Ligue2', 'LaLiga2', 'SerieB'] # French/Lower

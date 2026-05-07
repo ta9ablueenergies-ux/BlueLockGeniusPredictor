@@ -39,6 +39,7 @@ FDO_COMPETITIONS = {
     'Ligue2':             {'code': 'FL2', 'id': 2142},
     'LaLiga2':            {'code': 'SD',  'id': 2077},
     'SerieB':             {'code': 'SB',  'id': 2121},
+    'WorldCup':           {'code': 'WC',  'id': 2000},
 }
 
 BASE_URL = 'https://api.football-data.org/v4'
@@ -186,6 +187,16 @@ def generate_enhanced_mock(league, target_date):
             ('Napoli', 'Eintracht Frankfurt', '20:00'),
             ('Liverpool', 'AC Milan', '20:00'),
             ('Juventus', 'Sevilla', '20:00')
+        ],
+        'WorldCup': [
+            ('Brazil', 'Germany', '21:00'),
+            ('France', 'Argentina', '18:00'),
+            ('Spain', 'England', '21:00'),
+            ('Portugal', 'Netherlands', '18:00'),
+            ('USA', 'Mexico', '21:00'),
+            ('Morocco', 'Senegal', '15:00'),
+            ('Japan', 'South Korea', '15:00'),
+            ('Australia', 'Croatia', '18:00'),
         ],
         'SerieA': [
             ('Inter Milan', 'AC Milan', '20:45'),

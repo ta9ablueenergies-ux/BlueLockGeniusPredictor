@@ -151,7 +151,7 @@ def fit_all_leagues(leagues=None, min_samples: int = 200):
     if leagues is None:
         leagues = [
             "PremierLeague", "LaLiga", "SerieA", "Bundesliga", "Ligue1",
-            "ChampionsLeague", "Championship", "ScottishPremiership",
+            "ChampionsLeague", "WorldCup", "Championship", "ScottishPremiership",
             "Eredivisie", "LigaNOS", "BelgianProLeague", "SuperLig",
             "2Bundesliga", "Ligue2", "LaLiga2", "SerieB",
         ]
